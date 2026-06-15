@@ -19,7 +19,7 @@ final class PublicTest extends TestCase
         $quiniela = new Quiniela($resultados);
 
         //Act
-        $respuesta = $quiniela->apostar("apostar españa-brasil 1");
+        $respuesta = $quiniela->accionar("apostar españa-brasil 1");
         
         //Assert
         $this->assertEquals($respuesta, "españa-brasil: 1");
@@ -36,7 +36,7 @@ final class PublicTest extends TestCase
         $quiniela = new Quiniela($resultados);
 
         //Act
-        $respuesta = $quiniela->apostar("apostar españa-brasil 3");
+        $respuesta = $quiniela->accionar("apostar españa-brasil 3");
         
         //Assert
         $this->assertEquals($respuesta, "Signo no valido");
@@ -56,8 +56,8 @@ final class PublicTest extends TestCase
         $quiniela = new Quiniela($resultados);
 
         //Act
-        $primeraApuesta = $quiniela->apostar("apostar españa-brasil 1");
-        $respuesta = $quiniela->apostar("apostar francia-alemania x");
+        $primeraApuesta = $quiniela->accionar("apostar españa-brasil 1");
+        $respuesta = $quiniela->accionar("apostar francia-alemania x");
 
         //Assert
         $this->assertEquals($respuesta, "españa-brasil: 1, francia-alemania: x");
@@ -72,7 +72,7 @@ final class PublicTest extends TestCase
         $quiniela = new Quiniela($resultados);
 
         //Act
-        $respuesta = $quiniela->apostar("apostar japon-alemania 1");
+        $respuesta = $quiniela->accionar("apostar japon-alemania 1");
         
         //Assert
         $this->assertEquals($respuesta, "Apuesta Invalida");

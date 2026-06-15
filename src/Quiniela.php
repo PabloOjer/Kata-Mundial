@@ -10,7 +10,25 @@ class Quiniela
 
     }
 
-    public function apostar(string $apuesta): string
+    public function accionar(string $entrada): string
+    {
+        $accion = explode(" ", $entrada)[0];
+        if($accion === "apostar"){
+            return $this->apostar($entrada);
+        }
+        if($accion === "aciertos"){
+            return $this->aciertos($entrada);
+        }
+        if($accion === "quitar"){
+            return $this->quitar($entrada);
+        }
+        if($accion === "vaciar"){
+            return $this->vacia($entrada);
+        }
+        return "No se ha podido procesar la acción";
+    }
+
+    private function apostar(string $apuesta): string
     {
         $equipos = explode(" ", $apuesta)[1];
         $ganador = explode(" ", $apuesta)[2];
