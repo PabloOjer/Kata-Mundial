@@ -6,6 +6,8 @@ class Quiniela
 {
     public function apostar(string $apuesta): string
     {
-        return "españa-brasil: 1";
+        $equipos = apuesta.split(" ")[1];
+        $ganador = apuesta.split(" ")[2];
+        return $equipos . ": " . $ganador;
     }
 }
