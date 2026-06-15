@@ -8,6 +8,10 @@ class Quiniela
     {
         $equipos = explode(" ", $apuesta)[1];
         $ganador = explode(" ", $apuesta)[2];
-        return $equipos . ": " . $ganador;
+        if($ganador == "1" || $ganador == "2" || $ganador == "x") {
+            return $equipos . ": " . $ganador;
+        } else {
+            return "Signo no valido";
+        }
     }
 }
