@@ -48,4 +48,9 @@ class Quiniela
         $this->apuestas = "";
         return "La quiniela esta vacía";
     }
+
+    private function aciertos(string $entrada): string
+    {
+        return "Aciertos: 1";
+    }
 }
