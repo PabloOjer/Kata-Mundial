@@ -64,6 +64,9 @@ final class PublicTest extends TestCase
         
     }
 
+    /**
+     * @test
+     */
     public function apostarPartidoNoExiste(): void
     {
         // Arrange
@@ -76,6 +79,23 @@ final class PublicTest extends TestCase
         
         //Assert
         $this->assertEquals($respuesta, "Apuesta Invalida");
+    }
+
+    /**
+     * @test
+     */
+    public function vaciarQuiniela(): void
+    {
+        // Arrange
+        $resultados = $this->createMock(ResultadosInterface::class);
+        $resultados->method("obtenerResultado")->with("españa-brasil")->willReturn("1");
+        $quiniela = new Quiniela($resultados);
+
+        //Act
+        $respuesta = $quiniela->accionar("vaciar");
+
+        //Assert
+        $this->assertEquals($respuesta, "Quiniela vacía");
     }
 }
 ?>
