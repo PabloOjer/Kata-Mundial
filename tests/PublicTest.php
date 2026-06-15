@@ -12,8 +12,13 @@ final class PublicTest extends TestCase
      */
     public function apostarPartido(): void
     {
+        // Arrange
         $quiniela = new Quiniela();
+
+        //Act
         $respuesta = $quiniela->apostar("apostar españa-brasil 1");
+        
+        //Assert
         $this->assertEquals($respuesta, "españa-brasil: 1");
     }
 }
