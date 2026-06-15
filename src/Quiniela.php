@@ -17,7 +17,7 @@ class Quiniela
             return $this->apostar($entrada);
         }
         if($accion === "aciertos"){
-            return $this->aciertos($entrada);
+            return $this->aciertos();
         }
         if($accion === "quitar"){
             return $this->quitar($entrada);
@@ -49,7 +49,7 @@ class Quiniela
         return "La quiniela esta vacía";
     }
 
-    private function aciertos(string $entrada): string
+    private function aciertos(): string
     {
         return "Aciertos: 1";
     }
