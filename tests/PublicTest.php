@@ -4,6 +4,7 @@ namespace Deg540\CleanCodeKata9\Test;
 
 use PHPUnit\Framework\TestCase;
 use Deg540\CleanCodeKata9\Quiniela;
+use Deg540\CleanCodeKata9\ResultadosInterface;
 
 final class PublicTest extends TestCase
 {
@@ -13,7 +14,9 @@ final class PublicTest extends TestCase
     public function apostarPartido(): void
     {
         // Arrange
-        $quiniela = new Quiniela();
+        $resultados = $this->createMock(ResultadosInterface::class);
+        $resultados->method("obtenerResultado")->with("españa-brasil")->willReturn("1");
+        $quiniela = new Quiniela($resultados);
 
         //Act
         $respuesta = $quiniela->apostar("apostar españa-brasil 1");
@@ -28,7 +31,9 @@ final class PublicTest extends TestCase
     public function apostarErroneoPartido(): void
     {
         // Arrange
-        $quiniela = new Quiniela();
+        $resultados = $this->createMock(ResultadosInterface::class);
+        $resultados->method("obtenerResultado")->with("españa-brasil")->willReturn("1");
+        $quiniela = new Quiniela($resultados);
 
         //Act
         $respuesta = $quiniela->apostar("apostar españa-brasil 3");
@@ -43,7 +48,12 @@ final class PublicTest extends TestCase
     public function apostarVariosPartidos(): void
     {
         // Arrange
-        $quiniela = new Quiniela();
+        $resultados = $this->createMock(ResultadosInterface::class);
+        $resultados->method("obtenerResultado")->willReturnMap([
+            ["españa-brasil", "1"],
+            ["francia-alemania", "x"]
+        ]);
+        $quiniela = new Quiniela($resultados);
 
         //Act
         $primeraApuesta = $quiniela->apostar("apostar españa-brasil 1");

@@ -1,7 +1,7 @@
 <?php
 namespace Deg540\CleanCodeKata9;
 
-interface Resultados
+interface ResultadosInterface
 {
 public function obtenerResultado(string $apuestas): ?string;
 }
