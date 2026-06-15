@@ -21,5 +21,20 @@ final class PublicTest extends TestCase
         //Assert
         $this->assertEquals($respuesta, "españa-brasil: 1");
     }
+
+    /**
+     * @test
+     */
+    public function apostarErroneoPartido(): void
+    {
+        // Arrange
+        $quiniela = new Quiniela();
+
+        //Act
+        $respuesta = $quiniela->apostar("apostar españa-brasil 3");
+        
+        //Assert
+        $this->assertEquals($respuesta, "Signo no valido");
+    }
 }
 ?>
