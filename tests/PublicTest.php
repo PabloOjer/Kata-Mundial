@@ -53,5 +53,19 @@ final class PublicTest extends TestCase
         $this->assertEquals($respuesta, "españa-brasil: 1, francia-alemania: x");
         
     }
+
+    public function apostarPartidoNoExiste(): void
+    {
+        // Arrange
+        $resultados = $this->createMock(ResultadosInterface::class);
+        $resultados->method("obtenerResultado")->with("japon-alemania")->willReturn(null);
+        $quiniela = new Quiniela($resultados);
+
+        //Act
+        $respuesta = $quiniela->apostar("apostar japon-alemania 1");
+        
+        //Assert
+        $this->assertEquals($respuesta, "Apuesta Invalida");
+    }
 }
 ?>
