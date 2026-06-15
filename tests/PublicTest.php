@@ -13,7 +13,7 @@ final class PublicTest extends TestCase
     public function apostarPartido(): void
     {
         $quiniela = new Quiniela();
-        $respuesta = $quiniela->apostar("apostar españa-brasil: 1");
+        $respuesta = $quiniela->apostar("apostar españa-brasil 1");
         $this->assertEquals($respuesta, "españa-brasil: 1");
     }
 }
