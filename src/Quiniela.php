@@ -4,7 +4,12 @@ namespace Deg540\CleanCodeKata9;
 
 class Quiniela
 {
-    private $apuestas = "";
+    private string $apuestas = "";
+
+    public function __construct(private ResultadosInterface $resultados){
+
+    }
+    
     public function apostar(string $apuesta): string
     {
         $equipos = explode(" ", $apuesta)[1];
