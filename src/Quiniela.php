@@ -46,6 +46,6 @@ class Quiniela
     private function vaciar(): string
     {
         $this->apuestas = "";
-        return "Quiniela vacía";
+        return "La quiniela esta vacía";
     }
 }

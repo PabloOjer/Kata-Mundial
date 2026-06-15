@@ -95,7 +95,25 @@ final class PublicTest extends TestCase
         $respuesta = $quiniela->accionar("vaciar");
 
         //Assert
-        $this->assertEquals($respuesta, "Quiniela vacía");
+        $this->assertEquals($respuesta, "La quiniela esta vacía");
+    }
+
+    /**
+     * @test
+     */
+    public function consultarAciertos(): void
+    {
+        // Arrange
+        $resultados = $this->createMock(ResultadosInterface::class);
+        $resultados->method("obtenerResultado")->with("españa-brasil")->willReturn("1");
+        $quiniela = new Quiniela($resultados);
+
+        //Act
+        $respuesta = $quiniela->accionar("apostar españa-brasil 1");
+        $respuesta = $quiniela->accionar("aciertos");
+
+        //Assert
+        $this->assertEquals($respuesta, "Aciertos: 1");
     }
 }
 ?>
