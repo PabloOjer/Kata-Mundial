@@ -51,6 +51,15 @@ class Quiniela
 
     private function aciertos(): string
     {
-        return "Aciertos: 1";
+        $corregir = explode(", ", $this->apuestas);
+        foreach($this->corregir as $apuesta){
+            $equipos = explode(": ", $apuesta)[0];
+            $ganador = explode(": ", $apuesta)[1];
+            $resultado = $this->resultados->obtenerResultado($apuesta);
+            if($resultado === $ganador){
+                $aciertos++;
+            }
+        }
+        return "Aciertos: " . $aciertos;
     }
 }
