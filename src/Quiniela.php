@@ -23,7 +23,7 @@ class Quiniela
             return $this->quitar($entrada);
         }
         if($accion === "vaciar"){
-            return $this->vaciar($entrada);
+            return $this->vaciar();
         }
         return "No se ha podido procesar la acción";
     }
@@ -43,7 +43,7 @@ class Quiniela
         return "Signo no valido";
     }
 
-    private function vaciar(string $entrada): string
+    private function vaciar(): string
     {
         $this->apuestas = "";
         return "Quiniela vacía";
